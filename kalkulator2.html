@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+           
+        }
+       
+      .tamp {
+        background-color: blue;
+        width: 400px;
+        height: 500px;
+        color: white;
+        }     
+
+      label {
+        margin-top: 40px;
+        display: block;
+      }
+      
+      input {
+        width: 300px;
+        height: 30px;
+        margin-top: 20px;
+        border: none;
+        border: 1px solid black;
+        border-radius: 10px;
+    
+      }
+
+      button {
+        width: 80px;
+        height: 30px;
+        border: none;
+        border: 1px soild black;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        margin-top: 20px;
+        margin-left: 220px;
+      }
+     </style>
+</head>
+<body>
+
+    <div class="wrapper">
+       <div class="tamp">
+        <label for="tinggi">Tinggi</label>
+        <input type="number" name="input_t" id="input_t" placeholder="maukkan tinggi ">
+       
+        <label for="alas">Alas</label>
+        <input type="number" name="input_b" id="input_b" placeholder="masukkan alas">
+        <br>  
+        <h3 id="bmi"></h3>
+        <h3 id="keterangan"></h3>
+        <button onclick="hitung()">Hitung</button>
+
+    </div>
+    </div>
+
+    <script type="text/javascript">
+        var tinggi, alas, luas, keterangan, bmi;
+
+        function hitung() {
+         tinggi = document.getElementById('input_t').value;
+         alas = document.getElementById('input_b').value;
+         luas = 1/2;
+
+         bmi = luas * (alas * tinggi);
+
+         document.getElementById('bmi').innerHTML = "Hasil perhitungan Segitiga " + bmi;
+         
+
+
+        }
+
+
+    </script>
+    
+</body>
+</html>

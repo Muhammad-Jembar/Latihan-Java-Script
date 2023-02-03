@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+   <h2>Masukkan Rumus</h2>
+   
+   <label for="">Masukkan Luas</label>
+   <input type="number" name="" id="luas" placeholder="masukkan jari-jari">
+   <br>
+   <label for="">Masukkan pi</label>
+   <input type="number" name="" id="pi" placeholder="masukkan jari-jari">
+
+
+   <button value="Hitung" onclick="hitung()">Hitung</button>
+   <br>
+
+   <h3 id="keterangan"></h3>
+
+
+  
+
+
+     <script>
+     var lingkaran, luas, keterangan, hasil, pi;
+        
+
+     function hitung () {
+     luas = document.getElementById('luas').value;
+     pi = document.getElementById('pi').value;
+
+     rumus = 3.14;
+     
+     keterangan = rumus * (luas*pi);
+
+     document.getElementById('keterangan').innerHTML = "Hasil Perhitunagn Luas Lingkaran " + keterangan;
+
+     }
+
+     </script>
+
+</body>
+</html>

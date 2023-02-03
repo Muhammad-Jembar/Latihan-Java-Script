@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+     
+    <div class="wrapper">
+    <div class="wrapper2">
+    <form id="studentForm">  
+     <input type="text" name="nama" placeholder="masukkan nama">
+     <input type="number" name="usia" placeholder="masukkan usia">
+     <input type="number" name="berat" placeholder="masukkan berat">
+     <button value="Submit">Submit</button>     
+    </form>
+    </div>
+    </div>
+
+    <div class="students"></div>
+    
+</body>
+
+
+  <script>
+    
+    const studentForm = document.getElementById('studentForm');
+    const studentsContainer = document.querySelector('.students');
+    const namainput = studentForm["nama"];
+    const usiainput = studentForm["usia"];
+    const beratinput = studentForm["berat"];
+
+
+   const students = JSON.parse(localStorage.getItem("students")) ||  [];
+    
+
+   const addStudent = (nama, usia, berat) => {
+    students.push({
+        nama,
+        usia,
+        berat,
+
+    }); 
+
+    localStorage.setItem("students", JSON.stringify(students));
+    return { nama, usia, berat };
+
+   };
+
+   
+
+   const createStudentElement = ({ nama, usia, berat }) => {
+    studentDiv = document.createElement("div");
+    studentNama = document.createElement("h2");
+    studentUsia = document.createElement("p");
+    studentBerat = document.createElement("p");
+
+    studentNama.innerText = "Student Nama " + nama;
+    studentUsia.innerText = "Student Usia " + usia;
+    studentBerat.innerText = "Student Berat " + berat;
+
+    // append untuk menggabungkan element
+    // appendChild untuk menggabungkan semua element
+    studentDiv.append(studentNama, studentUsia, studentBerat);
+    studentsContainer.appendChild(studentDiv);
+
+   };
+
+   students.forEach(createStudentElement);
+
+   studentForm.onsubmit = e => {
+    e.preventDefault();
+
+    const newStudent = addStudent(
+        namainput.value,
+        usiainput.value,
+        beratinput.value
+    );
+
+    createStudentElement(newStudent);
+
+    namainput.value = "";
+    usiainput.value = "";
+    beratinput.value = "";
+
+   };
+
+  </script>   
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+           
+        }
+       
+      .tamp {
+        background-color: blue;
+        width: 400px;
+        height: 500px;
+        color: white;
+        }     
+
+      label {
+        margin-top: 40px;
+        display: block;
+      }
+      
+      input {
+        width: 300px;
+        height: 30px;
+        margin-top: 20px;
+        border: none;
+        border: 1px solid black;
+        border-radius: 10px;
+    
+      }
+
+      button {
+        width: 80px;
+        height: 30px;
+        border: none;
+        border: 1px soild black;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+        margin-top: 20px;
+        margin-left: 220px;
+      }
+     </style>
+</head>
+<body>
+
+    <div class="wrapper">
+       <div class="tamp">
+        <label for="tinggi">Tinggi</label>
+        <input type="number" name="input_t" id="input_t" placeholder="maukkan tinggi badan">
+       
+        <label for="berat">Berat</label>
+        <input type="number" name="input_b" id="input_b" placeholder="masukkan berat badan">
+        <br>  
+        <h3 id="bmi"></h3>
+        <h3 id="keterangan"></h3>
+        <button onclick="hitung()">Hitung</button>
+
+    </div>
+    </div>
+
+    <script type="text/javascript">
+        var tinggi, berat, keterangan, bmi;
+
+        function hitung() {
+            tinggi = parseFloat(document.getElementById("input_t").value);
+            tinggi /= 100;
+            berat = parseFloat(document.getElementById("input_b").value);
+            
+            bmi = berat / (tinggi * tinggi);
+
+            if (bmi > 27) {
+                keterangan = "Gemuk sekali";
+            } else if ((bmi >= 25.1)  & (bmi <= 27)) {
+                keterangan = "Gemuk kelebihan berat badan";
+            } else if ((bmi >= 18.5) & (bmi <= 25)) {
+                keterangan = "Normal";
+            } else if ((bmi >= 17) & (bmi <= 18.4)) {
+                keterangan = "Kurus, kekurangan berat badan";
+            } else {
+                keterangan = "Kekurangan berat badan";
+            }
+
+            document.getElementById('bmi').innerHTML = "Hasil perhitungan BMI " + bmi.toFixed(1);
+            document.getElementById('keterangan').innerHTML = "Keterangan" + keterangan;
+
+        }
+
+
+    </script>
+    
+</body>
+</html>
