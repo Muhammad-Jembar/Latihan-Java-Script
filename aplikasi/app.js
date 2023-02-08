@@ -34,15 +34,15 @@ const hitung = document.getElementById("perhitungan");
      
     sDiv.append(sH2,sP,sP2, center);
     hitung.appendChild(sDiv);
-
+    
 
    };
 
    sTampil.forEach(buatBaru);
 
     sikuForm.onsubmit = e => {
-      e.preventDefault();
-      
+     e.preventDefault();
+
       const sLuas = luas.value;
       const sTinggi = tinggi.value;
       const Luas = (sLuas*sTinggi)/2;
